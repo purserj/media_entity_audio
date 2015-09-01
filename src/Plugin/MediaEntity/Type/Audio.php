@@ -70,7 +70,6 @@ class Audio extends MediaTypeBase {
     $options = array();
     $allowed_field_types = array('file');
     foreach ($this->entityManager->getFieldDefinitions('media', $bundle->id()) as $field_name => $field) {
-		var_dump($field->getType(),$field_name);
       if (in_array($field->getType(), $allowed_field_types) && !$field->getFieldStorageDefinition()->isBaseField()) {
         $options[$field_name] = $field->getLabel();
       }
