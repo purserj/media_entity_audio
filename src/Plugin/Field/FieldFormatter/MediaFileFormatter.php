@@ -11,7 +11,7 @@ use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\file\Plugin\Field\FieldFormatter\GenericFileFormatter;
 
 /**
- * Plugin implementation of the 'image_title_caption' formatter.
+ * Plugin implementation of the 'Media file formatter' formatter.
  *
  * @FieldFormatter(
  *   id = "media_entity_audio",
