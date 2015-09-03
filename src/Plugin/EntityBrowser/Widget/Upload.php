@@ -10,7 +10,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\entity_browser\Plugin\EntityBrowser\Widget\Upload as FileUpload;
 
 /**
- * Uses upload to create media entity images.
+ * Uses upload to create media entity audios.
  *
  * @EntityBrowserWidget(
  *   id = "media_entity_audio_upload",
