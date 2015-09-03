@@ -15,7 +15,7 @@ use Drupal\file\Plugin\Field\FieldFormatter\GenericFileFormatter;
  *
  * @FieldFormatter(
  *   id = "media_entity_audio",
- *   label = @Translation("Media File Formatter"),
+ *   label = @Translation("Audio Player (HTML5)"),
  *   field_types = {
  *     "file"
  *   }
