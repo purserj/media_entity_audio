@@ -7,7 +7,9 @@ Media entity support for audio file
 ##Configuration
 
 a) Install media_entity_audio module
+
 b) Go to admin/structure/media/manage/audio/display and change format to "Media file formatter". 
+
 c) Add new media from /media/add link
 
 
