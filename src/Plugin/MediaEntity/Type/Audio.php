@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains \Drupal\media_entity_audio\Plugin\MediaEntity\Type\Image.
+ * Contains \Drupal\media_entity_audio\Plugin\MediaEntity\Type\Audio.
  */
 
 namespace Drupal\media_entity_audio\Plugin\MediaEntity\Type;
