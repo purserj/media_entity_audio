@@ -25,7 +25,7 @@ class Upload extends FileUpload {
    */
   public function defaultConfiguration() {
     return [
-      'extensions' => 'mp3',
+      'extensions' => 'mp3 wav ogg',
       'media bundle' => NULL,
     ] + parent::defaultConfiguration();
   }
