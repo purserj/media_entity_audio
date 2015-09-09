@@ -22,7 +22,6 @@ function media_entity_audio_theme() {
  */
 function template_preprocess_media_file_formatter(&$vars) {
  //template_preprocess_file_link($vars);
- //var_dump($vars['extravalue']);die("ARIT");
   $file = $vars['file'];
   $options = array();
   $file_entity = ($file instanceof File) ? $file : File::load($file->fid);
@@ -31,7 +30,6 @@ function template_preprocess_media_file_formatter(&$vars) {
   $url = file_create_url($file_entity->getFileUri());
   $mimetype = $file_entity->getMimeType();
   
-  //var_dump($mimetype);die("HELLO");
   if($mimetype=='audio/mpeg'){
 	$vars['mimetype'] = 'audio/mpeg';  
    }
