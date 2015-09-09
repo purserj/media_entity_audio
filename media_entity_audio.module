@@ -11,7 +11,7 @@ use Drupal\media_entity_audio\Plugin\Field\FieldFormatter\AudioPlayerHTML5;
 function media_entity_audio_theme() {
   return array(
     'media_file_formatter' => array(
-      'variables' => array('file' => NULL, 'description' => NULL, 'attributes' => array(), 'value'=>NULL),
+      'variables' => array('file' => NULL, 'description' => NULL, 'attributes' => array(), 'value'=>NULL, 'extravalue'=>NULL ),
     ),
   );
 }
@@ -22,7 +22,7 @@ function media_entity_audio_theme() {
  */
 function template_preprocess_media_file_formatter(&$vars) {
  //template_preprocess_file_link($vars);
- 
+ //var_dump($vars['extravalue']);die("ARIT");
   $file = $vars['file'];
   $options = array();
   $file_entity = ($file instanceof File) ? $file : File::load($file->fid);

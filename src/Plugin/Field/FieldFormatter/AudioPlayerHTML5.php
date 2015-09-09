@@ -79,7 +79,8 @@ class AudioPlayerHTML5 extends AudioPlayerBase implements ContainerFactoryPlugin
    */
   public static function defaultSettings() {
     $settings['provide_download_link'] = TRUE;
-
+	$settings['audio_attributes']='';
+	
     return $settings;
   }
   
@@ -94,6 +95,13 @@ class AudioPlayerHTML5 extends AudioPlayerBase implements ContainerFactoryPlugin
       '#type' => 'checkbox',
       '#default_value' => $this->getSetting('provide_download_link'),
     ];
+    
+    $form['audio_attributes'] = [
+      '#title' => $this->t('Audio Tag Attributes'),
+      '#type' => 'textfield',
+      '#description'=>'Give values Like controls preload="auto" loop',
+      '#default_value' => $this->getSetting('audio_attributes'),
+    ];
 
     return $form;
   }
@@ -106,8 +114,8 @@ class AudioPlayerHTML5 extends AudioPlayerBase implements ContainerFactoryPlugin
     $elements = array();
 	//var_dump($this);die("ARIT");
 	$provide_download_link=$this->getSetting('provide_download_link');
-	
-	//var_dump($provide_download_link);die("HELLO");
+	$audio_attributes = $this->getSetting('audio_attributes');
+	//var_dump($audio_attributes);die("HELLO");
     foreach ($this->getEntitiesToView($items) as $delta => $file) {
       $item = $file->_referringItem;
       $elements[$delta] = array(
@@ -115,6 +123,7 @@ class AudioPlayerHTML5 extends AudioPlayerBase implements ContainerFactoryPlugin
         '#file' => $file,
         '#description' => $item->description,
         '#value'=>$provide_download_link,
+        '#extravalue'=>$audio_attributes,
         '#cache' => array(
           'tags' => $file->getCacheTags(),
           
