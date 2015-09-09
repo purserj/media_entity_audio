@@ -12,10 +12,10 @@
  * @ingroup themeable
  */
 #}
-<audio controls> 
+<audio {{ extravalue }}> 
 <source src="{{ media_link }}" type="{{ mimetype }}">
 </audio>
 {% if value %}
-<a href="{{ media_link }}" target="_blank" download {{ extravalue }}>Download</a>
+<a href="{{ media_link }}" target="_blank" download>Download</a>
 {% endif %}
 
