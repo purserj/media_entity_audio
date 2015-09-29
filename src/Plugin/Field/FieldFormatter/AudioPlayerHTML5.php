@@ -19,8 +19,6 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Cache\Cache;
 
-//use Drupal\file\Plugin\Field\FieldFormatter\GenericFileFormatter;
-
 /**
  * Plugin implementation of the 'Audio Player (HTML5)' formatter.
  *
@@ -32,10 +30,9 @@ use Drupal\Core\Cache\Cache;
  *   }
  * )
  */
-class AudioPlayerHTML5 extends AudioPlayerBase implements ContainerFactoryPluginInterface{
+class AudioPlayerHTML5 extends AudioPlayerBase implements ContainerFactoryPluginInterface {
 
-
-/**
+  /**
    * Constructs an ImageFormatter object.
    *
    * @param string $plugin_id
@@ -72,18 +69,16 @@ class AudioPlayerHTML5 extends AudioPlayerBase implements ContainerFactoryPlugin
     );
   }
 
-
-
-	/**
+  /**
    * {@inheritdoc}
    */
   public static function defaultSettings() {
     $settings['provide_download_link'] = TRUE;
-	$settings['audio_attributes']='';
-	
+    $settings['audio_attributes'] = '';
+
     return $settings;
   }
-  
+
   /**
    * {@inheritdoc}
    */
@@ -95,38 +90,34 @@ class AudioPlayerHTML5 extends AudioPlayerBase implements ContainerFactoryPlugin
       '#type' => 'checkbox',
       '#default_value' => $this->getSetting('provide_download_link'),
     ];
-    
+
     $form['audio_attributes'] = [
       '#title' => $this->t('Audio Tag Attributes'),
       '#type' => 'textfield',
-      '#description'=>'Give values Like controls preload="auto" loop',
+      '#description' => 'Give values Like controls preload="auto" loop',
       '#default_value' => $this->getSetting('audio_attributes'),
     ];
 
     return $form;
   }
 
-
   /**
    * {@inheritdoc}
    */
   public function viewElements(FieldItemListInterface $items) {
     $elements = array();
-	//var_dump($this);die("ARIT");
-	$provide_download_link=$this->getSetting('provide_download_link');
-	$audio_attributes = $this->getSetting('audio_attributes');
-	//var_dump($audio_attributes);die("HELLO");
+    $provide_download_link = $this->getSetting('provide_download_link');
+    $audio_attributes = $this->getSetting('audio_attributes');
     foreach ($this->getEntitiesToView($items) as $delta => $file) {
       $item = $file->_referringItem;
       $elements[$delta] = array(
         '#theme' => 'media_file_formatter',
         '#file' => $file,
         '#description' => $item->description,
-        '#value'=>$provide_download_link,
-        '#extravalue'=>$audio_attributes,
+        '#value' => $provide_download_link,
+        '#extravalue' => $audio_attributes,
         '#cache' => array(
           'tags' => $file->getCacheTags(),
-          
         ),
       );
       // Pass field item attributes to the theme function.
@@ -138,25 +129,7 @@ class AudioPlayerHTML5 extends AudioPlayerBase implements ContainerFactoryPlugin
         unset($item->_attributes);
       }
     }
-    /*if (!empty($elements)) {
-      $elements['#attached'] = array(
-        'library' => array('file/drupal.file.formatter.generic'),
-      );
-    }*/
-    
-    
-    //var_dump($elements);die("HELLO");
     return $elements;
   }
-  
-  /**
-   * {@inheritdoc}
-   */
-  /*public function settingsForm(array $form, FormStateInterface $form_state) {
-    
-
-    return $element;
-  }*/
 
 }
-
