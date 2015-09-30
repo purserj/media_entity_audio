@@ -28,24 +28,6 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class Audio extends MediaTypeBase {
 
   /**
-   * Constructs a new class instance.
-   *
-   * @param array $configuration
-   *   A configuration array containing information about the plugin instance.
-   * @param string $plugin_id
-   *   The plugin_id for the plugin instance.
-   * @param mixed $plugin_definition
-   *   The plugin implementation definition.
-   * @param \Drupal\Core\Entity\EntityManager $entity_manager
-   *   Entity manager service.
-   * @param \Drupal\Core\Config\Config $config
-   *   Media entity config object.
-   */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityManager $entity_manager, Config $config) {
-    parent::__construct($configuration, $plugin_id, $plugin_definition, $entity_manager, $config);
-  }
-
-  /**
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
@@ -102,15 +84,6 @@ class Audio extends MediaTypeBase {
    * {@inheritdoc}
    */
   public function getField(MediaInterface $media, $name) {
-
-    $source_field = $this->configuration['source_field'];
-    $property_name = $media->{$source_field}->first()->mainPropertyName();
-
-    $file = $this->entityManager->getStorage('file')->load($media->{$source_field}->first()->{$property_name});
-
-    $uri = $file->getFileUri();
-
-    return FALSE;
   }
 
 
