@@ -30,22 +30,7 @@ use Drupal\Core\Cache\Cache;
  *   }
  * )
  */
-class AudioPlayerHTML5 extends AudioPlayerBase implements ContainerFactoryPluginInterface {
-
-  /**
-   * {@inheritdoc}
-   */
-  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
-    return new static(
-      $plugin_id,
-      $plugin_definition,
-      $configuration['field_definition'],
-      $configuration['settings'],
-      $configuration['label'],
-      $configuration['view_mode'],
-      $configuration['third_party_settings']
-    );
-  }
+class AudioPlayerHTML5 extends AudioPlayerBase {
 
   /**
    * {@inheritdoc}
