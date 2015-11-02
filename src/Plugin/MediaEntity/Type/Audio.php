@@ -28,6 +28,21 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class Audio extends MediaTypeBase {
 
   /**
+   * Constructs a new class instance.
+   *
+   * @param array $configuration
+   *   A configuration array containing information about the plugin instance.
+   * @param string $plugin_id
+   *   The plugin_id for the plugin instance.
+   * @param mixed $plugin_definition
+   *   The plugin implementation definition.
+   * @param \Drupal\Core\Entity\EntityManager $entity_manager
+   *   Entity manager service.
+   * @param \Drupal\Core\Config\Config $config
+   *   Media entity config object.
+   */
+
+  /**
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
@@ -68,24 +83,9 @@ class Audio extends MediaTypeBase {
   /**
    * {@inheritdoc}
    */
-  public function validate(MediaInterface $media) {
-    // This should be handled by Drupal core.
-  }
-
-
-  /**
-   * {@inheritdoc}
-   */
   public function providedFields() {
 
   }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getField(MediaInterface $media, $name) {
-  }
-
 
   /**
    * {@inheritdoc}
