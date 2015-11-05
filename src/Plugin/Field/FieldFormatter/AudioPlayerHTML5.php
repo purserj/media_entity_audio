@@ -67,7 +67,7 @@ class AudioPlayerHTML5 extends AudioPlayerBase {
   /**
    * {@inheritdoc}
    */
-  public function viewElements(FieldItemListInterface $items) {
+  public function viewElements(FieldItemListInterface $items, $langcode) {
     $elements = array();
     $provide_download_link = $this->getSetting('provide_download_link');
     $audio_attributes = $this->getSetting('audio_attributes');
