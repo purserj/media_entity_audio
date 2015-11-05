@@ -90,7 +90,7 @@ class Audio extends MediaTypeBase {
   /**
    * {@inheritdoc}
    */
-  public function getFields() {
+  public function getField() {
 
   }
 
