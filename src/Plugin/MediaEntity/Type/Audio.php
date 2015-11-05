@@ -90,6 +90,13 @@ class Audio extends MediaTypeBase {
   /**
    * {@inheritdoc}
    */
+  public function getFields() {
+
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function thumbnail(MediaInterface $media) {
 
     $source_field = $this->configuration['source_field'];
